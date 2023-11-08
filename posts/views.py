@@ -7,7 +7,7 @@ from .serializers import PostSerializer
 class PostList(ListCreateAPIView):
     permission_classes = (IsAuthorOrReadOnly,)
     # permission_classes = (permissions.IsAdminUser,) # new
-    # queryset = Post.objects.all()
+    queryset = Post.objects.all()
     serializer_class = PostSerializer
 
     def perform_create(self, serializer):
