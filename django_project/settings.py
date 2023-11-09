@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts', # new
-    'posts', # new
+    'django.contrib.sites',
+    #3rd party
     'rest_framework', # new
     'rest_framework.authtoken', # new
     'allauth', # new
@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount', # new
     'dj_rest_auth', # new
     'dj_rest_auth.registration', # new
-    'django_extensions'
+    'django_extensions',
+    #local
+    'accounts', # new
+    'posts', # new
 
 ]
 
@@ -66,7 +69,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'], # new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
